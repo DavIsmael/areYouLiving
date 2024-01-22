@@ -7,7 +7,7 @@ public class main {
         int yearOfBirth = 0;
         int aHundredYearsFromYearOfBirth = 0;
         int havingBirthday = 0;
-        double oneYear = 365.242190;
+        double oneYearInDays = 365.242190;
         int leapYearsIndex = 0;
         int normalYearsIndex = 0;
         int leapYearDays = 0;
@@ -22,6 +22,8 @@ public class main {
         ArrayList<Integer> oneHundredYearsFromYourYearOfBirth = new ArrayList<Integer>();
         ArrayList<Integer> normalYears = new ArrayList<Integer>();
         ArrayList<Integer> leapYears = new ArrayList<Integer>();
+        ArrayList<Integer> yourNormalYears = new ArrayList<Integer>();
+        ArrayList<Integer> yourLeapYears = new ArrayList<Integer>();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Are you living? Are you really? Think about that.");
         System.out.print("What's your age? ");
@@ -56,8 +58,15 @@ public class main {
                 normalYears.add(oneHundredYearsFromNow.get(i));
             }
         }
-        for(int i = yearOfBirth; i <= aHundredYearsFromYearOfBirth; ++i){
-            oneHundredYearsFromYourYearOfBirth.add(i);
+        for(int i = 0, j = yearOfBirth; j <= aHundredYearsFromYearOfBirth; ++i, ++j){
+            oneHundredYearsFromYourYearOfBirth.add(j);
+            if(oneHundredYearsFromYourYearOfBirth.get(i) % 4 == 0 && oneHundredYearsFromYourYearOfBirth.get(i) % 100 != 0){
+                yourLeapYears.add(oneHundredYearsFromYourYearOfBirth.get(i));
+            }else if(oneHundredYearsFromYourYearOfBirth.get(i) % 4 == 0 && oneHundredYearsFromYourYearOfBirth.get(i) % 100 == 0 && oneHundredYearsFromYourYearOfBirth.get(i) % 400 == 0){
+                yourLeapYears.add(oneHundredYearsFromYourYearOfBirth.get(i));
+            }else{
+                yourNormalYears.add(oneHundredYearsFromYourYearOfBirth.get(i));
+            }
         }
         //Printing out leap years
         System.out.print("Leap years: ");
@@ -92,11 +101,11 @@ public class main {
             }
         }
         System.out.println();
-        leapYearDays = leapYears.size() * 366;
-        normalYearDays = (int) (normalYears.size() * 365.2422);
+        leapYearDays = yourLeapYears.size() * 366;
+        normalYearDays = (int) (yourNormalYears.size() * 365.2422);
         oneHundredYearsInDays = leapYearDays + normalYearDays;
         oneHundredYearsInSeconds = oneHundredYearsInDays * 24 * 60 * 60;
-        daysLived = (long) (oneYear * age);
+        daysLived = (long) (oneYearInDays * age);
         secondsLived = daysLived * 24 * 60 * 60;
         yourRemainingSeconds = oneHundredYearsInSeconds - secondsLived;
         yourRemainingDays = oneHundredYearsInDays - daysLived;
