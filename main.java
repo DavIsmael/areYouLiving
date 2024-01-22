@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.lang.InterruptedException;
 public class main {
     public static void main(String[] args) {
         int age = 0;
@@ -71,6 +72,11 @@ public class main {
         //Printing out leap years
         System.out.print("Leap years: ");
         int leapYearsLastIndex = leapYears.size() - 1;
+        try{
+           Thread.sleep(3000);
+        }catch(InterruptedException e){
+            System.out.println(e);
+        }
         for(int i = 0; i < leapYears.size(); ++i){
             if(leapYearsLastIndex == i){
                 System.out.print(leapYears.get(i) + ".");
@@ -80,8 +86,18 @@ public class main {
         }
         System.out.println();
         //Printing out normal years
+        try{
+            Thread.sleep(1500);
+        }catch(InterruptedException e){
+            System.out.println(e);
+        }
         System.out.print("Normal years: ");
         int normalYearsLastIndex = normalYears.size() - 1;
+        try{
+            Thread.sleep(3000);
+        }catch(InterruptedException e){
+            System.out.println(e);
+        }
         for(int i = 0; i < normalYears.size(); ++i){
             if(normalYearsLastIndex == i){
                 System.out.print(normalYears.get(i) + ".");
@@ -92,7 +108,17 @@ public class main {
         System.out.println();
         //Display years based on age
         int lastIndexFromYourYears = oneHundredYearsFromYourYearOfBirth.size() - 1;
+        try{
+            Thread.sleep(1500);
+        }catch(InterruptedException e){
+            System.out.println(e);
+        }
         System.out.print("Your years: ");
+        try{
+            Thread.sleep(3000);
+        }catch(InterruptedException e){
+            System.out.println(e);
+        }
         for(int i = 0; i < oneHundredYearsFromYourYearOfBirth.size(); ++i){
             if(lastIndexFromYourYears == i){
                 System.out.print(oneHundredYearsFromYourYearOfBirth.get(i) + ".");
@@ -109,15 +135,30 @@ public class main {
         secondsLived = daysLived * 24 * 60 * 60;
         yourRemainingSeconds = oneHundredYearsInSeconds - secondsLived;
         yourRemainingDays = oneHundredYearsInDays - daysLived;
-        System.out.println("The average person lives 100 years (my average statistics btw, haha), so u got " + oneHundredYearsInDays + " days to live");
-        System.out.println("Days lived: " + daysLived);
-        System.out.println("and " + yourRemainingDays + " days left..");
-        System.out.println("100 years in seconds: " + oneHundredYearsInSeconds + "s");
-        System.out.println("Seconds lived: " + secondsLived + "s");
-        System.out.println("Your remaining seconds: " + yourRemainingSeconds + "s");
-        System.out.println("We pretend like we have all the time of the world, but we really don't!!");
-        System.out.println("Im 19, so I personally have on average, 29969 remaining days or 2589321600 seconds to live and counting..");
-        System.out.println("So let's just not waste any more time and live, cause life is just too precious to be wasted, guys!");
-        System.out.println("THERES ONLY 3 BILLION 188 MILLION 851 THOUSAND AND 200 SECONDS IN OUR LIVES. WHY ARE YOU STILL HERE?");
+        try {
+            Thread.sleep(5000);
+            System.out.println("The average person lives 100 years (my average statistics btw, haha), so u got " + oneHundredYearsInDays + " days to live");
+            Thread.sleep(5000);
+            System.out.println("Days lived: " + daysLived);
+            Thread.sleep(5000);
+            System.out.println("and " + yourRemainingDays + " days left..");
+            Thread.sleep(5000);
+            System.out.println("100 years in seconds: " + oneHundredYearsInSeconds + "s");
+            Thread.sleep(5000);
+            System.out.println("Seconds lived: " + secondsLived + "s");
+            Thread.sleep(5000);
+            System.out.println("Your remaining seconds: " + yourRemainingSeconds + "s");
+            Thread.sleep(5000);
+            System.out.println("We pretend like we have all the time in the world, but we really don't!!");
+            Thread.sleep(5000);
+            System.out.println("Im 19, so I personally have on average, 29969 remaining days or 2589321600 seconds to live and counting..");
+            Thread.sleep(5000);
+            System.out.println("So let's just not waste any more time and live, cause life is just too precious to be wasted, guys!");
+            Thread.sleep(5000);
+            System.out.println("THERES ONLY 3 BILLION 188 MILLION 851 THOUSAND AND 200 SECONDS IN OUR LIVES. WHY ARE YOU STILL HERE?");
+            Thread.sleep(2500);
+        }catch(InterruptedException e){
+            System.out.println(e);
+        }
     }
 }
