@@ -9,8 +9,7 @@ public class main {
         int aHundredYearsFromYearOfBirth = 0;
         int havingBirthday = 0;
         double oneYearInDays = 365.242190;
-        int leapYearsIndex = 0;
-        int normalYearsIndex = 0;
+        int oneLeapYearInDays = 366;
         int leapYearDays = 0;
         int normalYearDays = 0;
         long oneHundredYearsInDays = 0;
@@ -49,7 +48,7 @@ public class main {
             yearOfBirth = currentYear - age;
         }
         aHundredYearsFromYearOfBirth = yearOfBirth + 100;
-        for(int i = 0, j = 2024; i <= 100; ++i, ++j){
+        for(int i = 0, j = currentYear; i <= 100; ++i, ++j){
             oneHundredYearsFromNow.add(j);
             if(oneHundredYearsFromNow.get(i) % 4 == 0 && oneHundredYearsFromNow.get(i) % 100 != 0){
                 leapYears.add(oneHundredYearsFromNow.get(i));
@@ -73,7 +72,7 @@ public class main {
         System.out.print("Leap years: ");
         int leapYearsLastIndex = leapYears.size() - 1;
         try{
-           Thread.sleep(3000);
+            Thread.sleep(3000);
         }catch(InterruptedException e){
             System.out.println(e);
         }
@@ -127,8 +126,8 @@ public class main {
             }
         }
         System.out.println();
-        leapYearDays = yourLeapYears.size() * 366;
-        normalYearDays = (int) (yourNormalYears.size() * 365.2422);
+        leapYearDays = yourLeapYears.size() * oneLeapYearInDays;
+        normalYearDays = (int) (yourNormalYears.size() * oneYearInDays);
         oneHundredYearsInDays = leapYearDays + normalYearDays;
         oneHundredYearsInSeconds = oneHundredYearsInDays * 24 * 60 * 60;
         daysLived = (long) (oneYearInDays * age);
